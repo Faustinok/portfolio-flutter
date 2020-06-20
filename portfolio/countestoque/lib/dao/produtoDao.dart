@@ -24,21 +24,6 @@ class ProdutoDao {
     }
   }
 
-  Future<Produto> selectProductByName(String nome) async {
-    var client = await db;
-    Produto produto;
-    final Future<List<Map<String, dynamic>>> futureMaps =
-        client.query('produtos', where: 'nome = ?', whereArgs: [nome]);
-    var maps = await futureMaps;
-    if (maps.length != 0) {
-      produto = Produto.fromMap(maps.first);
-      print(produto.nome);
-      return produto;
-    } else {
-      return null;
-    }
-  }
-
   Future<List<Produto>> selectProducts() async {
     var client = await db;
     Produto produto;
@@ -58,7 +43,7 @@ class ProdutoDao {
 
   Future<int> updatetProduct(Produto produto) async {
     return initDb().then((db) {
-      return db.update("Produto", produto.toMap(),
+      return db.update("produtos", produto.toMap(),
           where: "idproduto = ?", whereArgs: [produto.idproduto]);
     });
   }
