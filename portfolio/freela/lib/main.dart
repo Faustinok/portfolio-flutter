@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:freela/screens/boarding/boardingArrow.dart';
 import 'package:freela/screens/boarding/boardingPhone.dart';
 import 'package:freela/screens/boarding/boardingWorld.dart';
+import 'package:freela/testechart.dart';
 
 import 'screens/boarding/boardingHeart.dart';
 import 'screens/boarding/boardingMoney.dart';
